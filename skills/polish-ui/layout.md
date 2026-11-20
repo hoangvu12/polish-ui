@@ -31,6 +31,10 @@ Data that serves none of the view's goals is left out, even when it exists.
 - A grid of many cards (a gallery, a list of projects) uses `repeat(auto-fill, minmax(<min>, 1fr))`, which keeps the remaining items aligned to the columns.
 - When a padded card sits beside a bare column, line up their first content, not the box tops.
 
+## Nested surfaces
+
+Where a rounded surface holds another at an even inset smaller than its radius, outer radius = inner radius + padding + border. Keep the outer radius and shrink the inner one to the nearest radius token: with Tailwind's default radii, a `rounded-2xl p-2` card holds a `rounded-lg` child, not another `rounded-2xl`. Change a shared outer surface's radius only when asked (polish 10). When the padding is as large as the outer radius, or uneven, each surface keeps its own radius token; never make a child square to fit the formula. This applies to surfaces (inner panels, images, code blocks); shared controls keep their component's radius (polish 8).
+
 ## Main area and side panels
 
 - A main area beside a side panel stacks based on its own width, not the viewport, because resizable panes and collapsible sidebars make viewport breakpoints guess wrong. Use a container query, or Every Layout's Sidebar:
@@ -49,6 +53,7 @@ Data that serves none of the view's goals is left out, even when it exists.
 
 Content changes size. Build for it:
 
-- A flex child that holds truncating text needs `min-width: 0`.
+- A flex child that holds truncating text needs `min-width: 0`. If content forces a flexible grid track wider than its container, use `minmax(0, 1fr)` and handle the overflow inside it: wrap prose, and put a wide table in its own horizontal scroller. Never clip values people compare (polish 3).
+- Size normal content to its container. `100vw` includes the scrollbar, so if it causes sideways scroll, use `width: 100%` or natural block sizing. Keep intentional full-bleed layouts and check them with a scrollbar showing.
 - Text containers use `min-height`, not a fixed height.
 - Long names, long words and other languages don't break the row (polish 3).

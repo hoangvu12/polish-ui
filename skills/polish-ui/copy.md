@@ -14,7 +14,7 @@ Headings, card titles and captions inside an app stay at five words or fewer.
 
 ## Text that stays
 
-- **Labels.** One visible label per field. A control that already shows its meaning (a type selector, a search field with a magnifier) needs no label above it.
+- **Labels.** One visible label per field. A control that already shows its meaning (a type selector, a search field with a magnifier) needs no label above it, but still has an accessible name. A switch or checkbox says what happens when it's on: "Send read receipts", never "Don't send…" or "Disable…". When you reword an existing negative label, invert the control's bound value with it, or report it instead.
 - **Values and data.** A label for displayed data is a last resort.
   - Drop it when the format says what it is: an email, a price, a date.
   - Otherwise fold it into the value: "12 left in stock", "3 bedrooms".
@@ -23,7 +23,7 @@ Headings, card titles and captions inside an app stay at five words or fewer.
   - A confirm button repeats the dialog's verb and object: "Delete project?" leads to "Delete project".
   - Never "OK", "Submit", "Confirm", "Get started" or "Learn more".
   - Add "…" when more input follows.
-  - One command has one label everywhere, and its result keeps the name: "Publish" leads to "Published".
+  - One command has one label everywhere, and its result keeps the name: "Publish" leads to "Published". In-progress and done text pair up: "Saving changes…" becomes "Changes saved", never "successfully".
   - Link text makes sense on its own.
 - **Hints.** Write one only when a choice is still hard after fixing the label, unit, default or layout. It is one short line next to the control, true for most people, and never repeats the label.
 - **Errors.**
@@ -74,6 +74,8 @@ Also cut on sight. These are the marks of generated UI:
 
 - Use plain words the viewer knows. A term only the team uses ("Đã đưa lại") gets replaced with what it means.
 - One name per thing, the same everywhere in the product.
+- Where the product has translation files, each sentence is one message with placeholders, never fragments joined around a variable, and plurals use the library's plural syntax (`Intl.PluralRules` without one), never `n === 1 ? "" : "s"`.
+- Rendered text uses the "…" character, not "...".
 - Status badges in Capitalized form ("Draft", "Published"), not "draft" or "DRAFT".
 - Never point by colour or position ("the green button", "the menu on the left").
 - Full sentences (errors, empty states, hero copy) are plain and specific, with no filler and no em dashes. When the `unslop` skill is installed ([cursor/plugins](https://github.com/cursor/plugins/tree/main/pstack/skills/unslop)), follow it.
@@ -89,6 +91,6 @@ Boards, before/after pages and reports show the designs. Text stays minimal:
 
 ## Guardrails
 
-- Icon buttons keep an accessible name. When cut text was an icon button's only name, move it into `aria-label`. A text field keeps a visible label or a control that shows its meaning; `aria-label` alone isn't enough for fields.
+- Icon buttons keep an accessible name. When cut text was an icon button's only name, move it into `aria-label`. The name says the action and its object ("Delete project", "Close dialog"), never the glyph ("Trash", "X"), and starts with the visible text when there is any. Every `<img>` has `alt`: empty for decoration, otherwise what it shows or does. A text field keeps a visible label or a control that shows its meaning; `aria-label` alone isn't enough for fields.
 - Text from translation files, a CMS or data is changed at its source, or reported.
 - When you delete an element, delete its empty wrapper, its leftover margin and its unused imports too.

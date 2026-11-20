@@ -20,6 +20,8 @@ Each rule has a number, so you can cite it in a review. "polish 13" means feedba
 
 Motion rules hand off to [Emil Kowalski's skills](https://github.com/emilkowalski/skills), and copy rules use [unslop](https://github.com/cursor/plugins/tree/main/pstack/skills/unslop) when it is installed. Both are optional.
 
+Some surface, typography, icon, accessibility and copy details are adapted from [Jakub Krehel's skills](https://github.com/jakubkrehel/skills) (MIT).
+
 ## License
 
 MIT

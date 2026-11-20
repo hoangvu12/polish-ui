@@ -13,7 +13,8 @@ Cite rules as "polish 4". Read the matching file when the work touches its area:
 - Laying out a view, cards, tables, columns or dashboards: [layout.md](layout.md)
 - Building or changing a form: [forms.md](forms.md)
 - Interactive controls, states and overlays (focus, contrast, targets, announcements): [access.md](access.md)
-- Web code (React, Tailwind, HTML mockups), including motion: [web.md](web.md)
+- Web code (React, Tailwind, HTML mockups), including text rendering, icons, motion and the handover scan: [web.md](web.md)
+- Any delete or remove, in every stack: [web.md](web.md#destructive-actions)
 
 In other stacks, keep the intent of each web rule and implement it with what the stack offers.
 
@@ -42,7 +43,7 @@ For a new view, or a substantial reorganisation of one, write its content and ac
 **Consistency**
 
 8. **Reuse before you build.** Every dialog, input, select, tooltip, accordion, table, badge, toast and skeleton comes from the project's shared components and tokens, and comparable tables and cards share one anatomy ([layout.md](layout.md)). The same job looks and behaves the same on every page. When a shared component is missing, add it as a shared one.
-9. **Same meaning, same look.** One icon per meaning and one meaning per icon. One badge style, in Capitalized text. One set of button styles. A delete or remove trigger looks like any other secondary action; only the final confirm button is solid red, and it names what is lost.
+9. **Same meaning, same look.** One icon per meaning and one meaning per icon, from the project's icon library. One badge style, in Capitalized text. One set of button styles. A delete or remove trigger looks like any other secondary action. Irreversible loss, a material effect on other people and large batches deleted at once go through the shared confirm, whose final button alone is solid red and names what is lost. Other changes the person can undo from a named place (Trash, Archive) act at once and offer Undo ([web.md](web.md#destructive-actions)).
 10. **Keep what wasn't asked.** For a targeted change (restyle a card, fix a state), keep the layout and behaviour outside the request; the product's tokens win over any general style advice. In a redesign, every existing workflow stays reachable and frequent actions stay visible.
 
 **Space and surfaces**
@@ -52,13 +53,13 @@ For a new view, or a substantial reorganisation of one, write its content and ac
 
 **Feedback and states**
 
-13. **Feedback where the action happened.** A clicked control responds at once: it shows its pending state, then the result. An error and its retry sit next to what failed, and unsaved changes show next to what changed. A failed save keeps every typed value and keeps its dialog open. A toast reports background events, and it is never the only record of something.
+13. **Feedback where the action happened.** A clicked control responds at once: it shows its pending state, then the result. An error and its retry sit next to what failed, and unsaved changes show next to what changed. A failed save keeps every typed value and keeps its dialog open. Toasts are for background events, or an optional Undo shortcut after an item leaves the view ([web.md](web.md#destructive-actions)). A toast is never the only record or recovery path.
 14. **Loading without flashes.** Show a skeleton only for content that takes longer than about a second, so fast loads never flash one. Once shown, one skeleton shaped like the final layout stays until the content or an error replaces it. A refetch keeps the current content on screen. Long jobs (uploads, exports, runs) show measured progress ("3 of 50") when the system can count it, otherwise a labelled pending state, and a Cancel when the job supports it.
 15. **Say which empty it is.** Nothing yet: what goes here, and a button that adds it. No matches: name the filter and offer to clear it. Still loading: the skeleton. "No items" never shows before the load finishes.
 16. **Every state designed.**
     - Interactive elements have a pointer cursor, hover, visible keyboard focus and a disabled state.
     - A prerequisite the person must fix to continue shows beside the action. A supplementary reason may sit in a tooltip on a control that can still take focus ([web.md](web.md)).
-    - A submit button stays enabled while the form has errors ([forms.md](forms.md)).
+    - A submit button stays enabled while the form has errors ([forms.md](forms.md)). The one exception is a type-the-name confirm ([web.md](web.md#destructive-actions)).
     - A placeholder only shows an example value. A format or limit the person needs while typing goes in a visible hint.
     - Controls revealed on hover have their space reserved, so revealing them never resizes or shifts the row.
     - Code and JSON get syntax highlighting.
@@ -74,4 +75,4 @@ Tell it to load `polish-ui`. If it can't load skills (Claude Design, an external
 
 ## Before you hand over
 
-Check what you changed against the rules that apply. If you can render it, blur a screenshot: the view's subject and its main action are the first two things you see. Fix what fails and check again.
+Check what you changed against the rules that apply, and in web code run the scan at the end of [web.md](web.md#before-you-hand-over). If you can render it, blur a screenshot: the view's subject and its main action are the first two things you see. When implementing, fix in-scope failures and check again. When only reviewing, report findings without editing. Report unresolved and out-of-scope failures, and mark every check you couldn't run "Not verified".

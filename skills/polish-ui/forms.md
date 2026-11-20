@@ -11,7 +11,7 @@ How polish 13 and 16 apply to forms. Error wording lives in [copy.md](copy.md).
 
 ## Submitting
 
-- The submit button stays enabled while the form has errors. Clicking it shows every error next to its field and focuses the first invalid one. It is disabled only while the request is in flight, showing its pending state ("Creating…").
+- The submit button stays enabled while the form has errors. Clicking it shows every error next to its field and focuses the first invalid one. It is disabled only while the request is in flight, showing its pending state ("Creating…"), or in a type-the-name confirm until the name matches ([web.md](web.md#destructive-actions)).
 - A failed submit keeps every value and keeps the dialog open.
 - A server error about one field ("Name already taken") goes on that field. Any other error sits above the submit button.
 
@@ -21,6 +21,7 @@ How polish 13 and 16 apply to forms. Error wording lives in [copy.md](copy.md).
 - A format or rule the person needs while typing ("MM/YYYY", "At least 12 characters") goes in a hint linked to the field (`aria-describedby`; in shadcn, `FormDescription`). A placeholder only shows an example value, because it disappears on the first keystroke.
 - A group of radios, checkboxes or switches has a legend (`fieldset` and `legend`, or `role="group"` with `aria-labelledby`).
 - A field that depends on another option appears only once that option is on.
+- Personal details, passwords and codes get the right `type`, `inputmode` and `autocomplete` (`email`, `tel`, `current-password`, `one-time-code`), so autofill and password managers work. Never block paste.
 
 ## Errors in markup
 
