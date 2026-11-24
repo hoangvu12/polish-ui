@@ -120,5 +120,10 @@ Search the changed web code for these. A match is a lead to check in the rendere
 | `...` at the end of a string or JSX text | `…` |
 | `maximum-scale=1`, `user-scalable=no` | Remove it |
 | `100vw` on ordinary content | Check for sideways scroll with a scrollbar showing; size to the container if it overflows |
+| `→`, `↗`, `ArrowRight`, `ArrowUpRight` inside a button or link label; `Sparkles`, `Zap`, `Brain` imports; `·` in JSX text | [tells.md](tells.md) |
+| `uppercase` with `tracking-wide`/`tracking-widest` above a heading; `italic` or a colour span inside an `h1`/`h2` | [tells.md](tells.md) |
+| `Instrument_Serif`, `Instrument Serif`; hard-coded off-white backgrounds (`#F4F1EA`, `#FAF7F2`, `bg-[#F…]`); `blur-2xl`/`blur-3xl` on an absolute decorative element; `border-l-2`/`border-l-4` with a colour | [tells.md](tells.md) |
+| `animate-pulse` on a dot; `whileInView`, an `IntersectionObserver` fade, or a count-up on section content; `hover:-translate-y` on a card that isn't clickable | [tells.md](tells.md#motion) |
+| `quiet`, `real`, `unhurried`, `seamless`, `effortless` in copy; a percentage or big number not read from data | [tells.md](tells.md#words) |
 
 Then, for what you changed, check behaviour in the rendered flow: tab through it in both directions; run each delete or remove against [Destructive actions](#destructive-actions), including recovery after any toast is gone; scroll past the end of each overlay; view edges drawn only with a `box-shadow` in forced-colors mode ([access.md](access.md)); and narrow the window over flexible grid tracks holding wide content ([layout.md](layout.md#long-and-narrow)).

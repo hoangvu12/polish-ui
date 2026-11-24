@@ -54,21 +54,7 @@ Each line is a real case from past reviews.
 | Status string | "MetaBrain Studio · Advisor · 82 screens · 8 areas" | Keep the one fact that matters, or none. |
 | Intro blurb | "Every advisor page now runs on one shared set of tokens and components. Each frame below shows…" | Cut. Show the designs. |
 
-Also cut on sight. These are the marks of generated UI:
-
-- **Eyebrow labels.** Small caps above a heading ("FEATURES", "HOW IT WORKS").
-- **Decorative numbering.** "01 / 02 / 03", unless it's a real sequence the person follows.
-- **Reflex subtitles.** A subtitle under every heading, or a blurb under every list item, when the names alone already tell the items apart.
-- **Fake-state badges and dots.** "NEW", "AI", "LIVE" and pulsing dots that don't render from real state.
-- **Decorative icons.**
-  - Icons in tinted boxes, emoji in headings, buttons and labels.
-  - The same icon on every row of a single-type list.
-  - An icon stays when it is the control, or when every item in a toolbar or menu has one.
-- **"→" tacked onto button or link text.**
-- **"WORD — fragment" labels.**
-- **One accented word in a headline.**
-- **Monospace for labels that aren't code.**
-- **Slogans.** "Built different." "Ship faster. Think less."
+Also cut the tells of generated UI, the patterns models reach for by default (eyebrows, arrows on buttons, slogans, mood words, made-up stats): [tells.md](tells.md).
 
 ## Words
 

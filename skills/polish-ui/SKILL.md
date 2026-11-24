@@ -1,6 +1,6 @@
 ---
 name: polish-ui
-description: Rules for interfaces that explain themselves, with clear hierarchy, shared components and clean surfaces. Use when designing, building, restyling or changing any screen, component or mockup, when fixing UI states, when reviewing UI, or when briefing another agent or design tool on UI work.
+description: Rules for interfaces that explain themselves, with clear hierarchy, shared components and clean surfaces. Use when designing, building, restyling or changing any screen, component or mockup, when fixing UI states or alignment and padding, when reviewing UI, or when briefing another agent or design tool on UI work.
 ---
 
 # Polish UI
@@ -11,10 +11,12 @@ Cite rules as "polish 4". Read the matching file when the work touches its area:
 
 - Any text on screen: [copy.md](copy.md)
 - Laying out a view, cards, tables, columns or dashboards: [layout.md](layout.md)
+- Sidebars, toolbars, menus and lists, or any alignment, padding or "looks off" fix: [alignment.md](alignment.md), with a probe that draws the guide lines and lists every miss
 - Building or changing a form: [forms.md](forms.md)
 - Interactive controls, states and overlays (focus, contrast, targets, announcements): [access.md](access.md)
 - Web code (React, Tailwind, HTML mockups), including text rendering, icons, motion and the handover scan: [web.md](web.md)
 - Any delete or remove, in every stack: [web.md](web.md#destructive-actions)
+- Landing pages, a new project with no design system, or a review of whether UI looks generated: [tells.md](tells.md)
 
 In other stacks, keep the intent of each web rule and implement it with what the stack offers.
 
@@ -48,7 +50,7 @@ For a new view, or a substantial reorganisation of one, write its content and ac
 
 **Space and surfaces**
 
-11. **Space follows relatedness.** The gap inside a group is smaller than the gap between groups, and a heading sits closer to its content than to the section above. A screen that uses one gap everywhere fails. Elements sit on shared edges, one alignment per region, and nothing touches its neighbour. See [layout.md](layout.md).
+11. **Space follows relatedness.** The gap inside a group is smaller than the gap between groups, and a heading sits closer to its content than to the section above. A screen that uses one gap everywhere fails. Elements sit on shared edges, one alignment per region, and nothing touches its neighbour: each container has a text line, at most one box line and a trailing line, and every item sits on one or is centred. See [layout.md](layout.md) and [alignment.md](alignment.md).
 12. **Group with space before boxes.** Try grouping by spacing, then matching style, then alignment, and add a container only if those fail. A list of same-type items is one list, not a box per item. Where raised surfaces are needed, each level is one clear step lighter than the one below, in light and dark mode alike, and a section holds at most one level of cards. Inputs, light buttons and unselected cards have an edge that identifies them against their background ([access.md](access.md) gives the number). Separators are rare.
 
 **Feedback and states**
@@ -75,4 +77,4 @@ Tell it to load `polish-ui`. If it can't load skills (Claude Design, an external
 
 ## Before you hand over
 
-Check what you changed against the rules that apply, and in web code run the scan at the end of [web.md](web.md#before-you-hand-over). If you can render it, blur a screenshot: the view's subject and its main action are the first two things you see. When implementing, fix in-scope failures and check again. When only reviewing, report findings without editing. Report unresolved and out-of-scope failures, and mark every check you couldn't run "Not verified".
+Check what you changed against the rules that apply, and in web code run the scan at the end of [web.md](web.md#before-you-hand-over). If you can render it, blur a screenshot: the view's subject and its main action are the first two things you see. If you changed a sidebar, toolbar, menu, list, dialog or table, run the alignment pass on it ([alignment.md](alignment.md#alignment-pass)). When implementing, fix in-scope failures and check again. When only reviewing, report findings without editing. Report unresolved and out-of-scope failures, and mark every check you couldn't run "Not verified".
